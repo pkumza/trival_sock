@@ -13,7 +13,7 @@ int main(void) {
 
     // 建立服务器套接字地址
     memset(&servAddr, 0, sizeof(servAddr));
-    servAddr.sin_family = PF_INET;
+    servAddr.sin_family = AF_INET;      // Address Family is not Protocal Family, but this will not go wrong because the value is the same except in BSD.
     servAddr.sin_port = htons(SERVER_PORT); // 端口号
     servAddr.sin_addr.s_addr = htonl(INADDR_ANY);   // 默认IP地址，INADDR_ANY就是指定地址为0.0.0.0的地址，意为监听所有
     // 创建套接字
